@@ -1,5 +1,9 @@
 let books = [];
 
+function deletebook(id){
+    books.splice(id, 1);
+    showbooks();
+}
 
   function addBook() {
             const bookName = document.getElementById('bookName').value;
@@ -34,7 +38,8 @@ let books = [];
                 <p><strong>Book Name: </strong>${book.name}</p>
                 <p><strong>Author Name:</strong> ${book.authorName}</p>
                 <p><strong>Book Description:</strong> ${book.bookDescription}</p>
-                <p><strong>No. of Pages:</strong> ${book.pagesNumber + " " + book.paginas}</p>`
+                <p><strong>No. of Pages:</strong> ${book.pagesNumber + " " + book.paginas}</p>
+                <button onclick="deletebook(${index})">Delete</button>`
             );
             document.getElementById('books').innerHTML = booksDiv.join('');
         }
@@ -45,3 +50,4 @@ let books = [];
             document.getElementById('bookDescription').value = '';
             document.getElementById('pagesNumber').value = '';
  }
+ 
